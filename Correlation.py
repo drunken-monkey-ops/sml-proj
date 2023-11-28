@@ -21,8 +21,8 @@ import seaborn as sns
 
 
 sc = StandardScaler()
-file = r"C:\Users\theos\OneDrive - Novotek AB\Desktop\Studier\Statistical Machine Learning\training_data.csv"
-data = pd.read_csv(file, dtype={'ID': str}).dropna().reset_index(drop=True)
+url = r"https://uppsala.instructure.com/courses/80540/files/5835593/download?download_frd=1"
+data = pd.read_csv(url, dtype={'ID': str}).dropna().reset_index(drop=True)
 data['increase_stock'] = np.where(data['increase_stock'] == 'low_bike_demand', 0, 1)
 
 data.drop(columns=['increase_stock'])
