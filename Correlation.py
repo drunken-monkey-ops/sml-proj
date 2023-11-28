@@ -33,29 +33,27 @@ X = data[['hour_of_day','day_of_week','month','holiday','weekday',
 
 h_day= data['hour_of_day']
 y = data['increase_stock']
-h_day_1 = []
-h_day_0 = []
+week_1 = []
+week_0 = []
 
 for index, row in data.iterrows():
     if row['increase_stock'] == 1:
-        h_day_1.append(row['week'])
+        week_1.append(row['day_of_week'])
     else:
-       h_day_0.append(row['hour_of_day'])     
+       week_0.append(row['day_of_week'])     
 
          
-h_day_1.sort()
-h_day_0.sort()
+week_1.sort()
+week_0.sort()
 
 n_bins= []
 for n in range(7):
     n_bins.append(n)
 
-print(h_day_1.__len__())
-print(h_day_0.__len__())
-plt.hist(h_day_1, bins=n_bins, edgecolor="black")
+plt.hist(week_1, bins=n_bins, edgecolor="black")
 plt.xticks(n_bins)
-plt.title("Hour of day with target variable high bike demand")
-plt.xlabel("Hour of day")
+plt.title("Weekday with target variable high bike demand")
+plt.xlabel("Weekday")
 plt.ylabel("Occurence")
 
 plt.show()
